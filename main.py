@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 # --------------- INITALIZE SELENIUM & WEBPAGE REQUEST ----------------- #
-chrome_driver_path = "C:/Users/Omar Kazimi/OneDrive/Documents/Development/chromedriver.exe"
+chrome_driver_path = os.environ.["CHROMEPATHDRIVER"]
 driver = webdriver.Chrome(executable_path=chrome_driver_path)
 driver.get("https://www.linkedin.com/feed/")
 driver.maximize_window()
@@ -17,9 +17,9 @@ driver.find_element(By.CLASS_NAME, "main__sign-in-link").click()
 time.sleep(2)
 
 username = driver.find_element(By.ID, "username")
-username.send_keys("okazimi@hotmail.com")
+username.send_keys(os.environ["USERNAME"])
 password = driver.find_element(By.ID, "password")
-password.send_keys("NoriJenni@#1997")
+password.send_keys(os.environ["PASSWORD"])
 
 time.sleep(2)
 
